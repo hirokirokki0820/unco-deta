@@ -1,14 +1,22 @@
 /******* カスタムコンポーネント *********/
 
 /**** フォーム ****/
-.field{
+.form-box{
+  @apply mb-3 md:w-2/3 md:mx-auto
+}
 
+.field{
+  @apply my-3
 }
 
 .form-input{
   @apply border p-1 rounded w-full
 }
 
+/**** リンク ****/
+.link{
+  @apply underline hover:text-sky-600
+}
 
 /**** ボタン ****/
 .btn{
