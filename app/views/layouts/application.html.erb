@@ -11,6 +11,14 @@
   </head>
 
   <body>
+    <p class="notice"><%= notice %></p>
+    <p class="alert"><%= alert %></p>
     <%= yield %>
+    <% if Rails.env.development? %>
+      <div style="background: #eee; color: #EE6E73">
+        <p><%= debug(params) %></p>
+        <p>セッションID => <%= session["warden.user.user.key"] %></p>
+      </div>
+    <% end %>
   </body>
 </html>
