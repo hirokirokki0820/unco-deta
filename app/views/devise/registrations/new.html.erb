@@ -1,29 +1,31 @@
-<h2>Sign up</h2>
+<h2>新規登録</h2>
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= render "devise/shared/error_messages", resource: resource %>
 
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+  <div class="field my-3">
+    <%= f.label :email, class: "font-semibold" %><br />
+    <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-input" %>
   </div>
 
-  <div class="field">
-    <%= f.label :password %>
+  <div class="field my-3">
+    <%= f.label :password, class: "font-semibold" %>
     <% if @minimum_password_length %>
     <em>(<%= @minimum_password_length %> characters minimum)</em>
     <% end %><br />
-    <%= f.password_field :password, autocomplete: "new-password" %>
+    <%= f.password_field :password, autocomplete: "new-password", class: "form-input" %>
   </div>
 
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+  <div class="field my-3">
+    <%= f.label :password_confirmation, class: "font-semibold" %><br />
+    <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "form-input" %>
   </div>
 
-  <div class="actions">
-    <%= f.submit "Sign up" %>
+  <div class="actions mb-3">
+    <%= f.submit "登録する", class: "btn btn-sky" %>
   </div>
 <% end %>
 
-<%= render "devise/shared/links" %>
+<div class="mb-3">
+  <%= render "devise/shared/links" %>
+</div>

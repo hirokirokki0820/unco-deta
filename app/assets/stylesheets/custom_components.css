@@ -1,0 +1,25 @@
+/******* カスタムコンポーネント *********/
+
+/**** フォーム ****/
+.field{
+
+}
+
+.form-input{
+  @apply border p-1 rounded w-full
+}
+
+
+/**** ボタン ****/
+.btn{
+  @apply font-semibold py-2 px-4 rounded;
+}
+
+.btn-sky{
+  @apply text-white bg-sky-600 hover:bg-sky-800 cursor-pointer;
+}
+
+.btn-outline-gray{
+  color: #5F6161;
+  @apply border-2 hover:bg-gray-100
+}
