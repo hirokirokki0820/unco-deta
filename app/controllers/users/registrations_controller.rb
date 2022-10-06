@@ -3,6 +3,7 @@
 class Users::RegistrationsController < Devise::RegistrationsController
   # before_action :configure_sign_up_params, only: [:create]
   # before_action :configure_account_update_params, only: [:update]
+  before_action :ensure_general_user, only: [:update, :destroy]
 
   # GET /resource/sign_up
   # def new
@@ -29,6 +30,12 @@ class Users::RegistrationsController < Devise::RegistrationsController
         clean_up_passwords resource
         set_minimum_password_length
         respond_with resource, status: :see_other # 今回は失敗するときのrespond_withにerror出したいので、ここで303 statusを追加
+    end
+  end
+
+  def ensure_general_user
+    if resource.email == "guest@example.com"
+      redirect_to root_path, alert: "ゲストユーザーの変更・削除はできません"
     end
   end
 

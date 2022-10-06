@@ -3,6 +3,19 @@
 class Users::SessionsController < Devise::SessionsController
   # before_action :configure_sign_in_params, only: [:create]
 
+  def guest_sign_in
+    user = User.guest
+    sign_in user
+    redirect_to root_path, notice: "ゲストユーザーとしてログインしました"
+  end
+
+  def respond_to_on_destroy
+    respond_to do |format|
+      format.all { head :no_content }
+      format.any(*navigational_formats) { redirect_to after_sign_out_path_for(resource_name), status: :see_other }
+    end
+  end
+
   # GET /resource/sign_in
   # def new
   #   super
@@ -17,13 +30,6 @@ class Users::SessionsController < Devise::SessionsController
   # def destroy
   #   super
   # end
-
-  def respond_to_on_destroy
-    respond_to do |format|
-      format.all { head :no_content }
-      format.any(*navigational_formats) { redirect_to after_sign_out_path_for(resource_name), status: :see_other }
-    end
-  end
 
   # protected
 

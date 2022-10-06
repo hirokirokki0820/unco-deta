@@ -57,7 +57,7 @@ gem "devise"
 gem "dotenv-rails"
 
 # fontawesome
-# gem "font-awesome-sass", "~> 6.2.0"
+gem "font-awesome-sass", "~> 6.2.0"
 
 
 group :development, :test do
